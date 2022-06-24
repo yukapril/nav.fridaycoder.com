@@ -21,7 +21,7 @@ jobs:
           node-version: "16"
 
       - name: Build project
-        run: npm i && npm run build
+        run: npm i --legacy-peer-deps && npm run build
 
       - name: Upload COS
         uses: zkqiang/tencent-cos-action@v0.1.0
