@@ -4,24 +4,26 @@
     <div class="block">
       <input class="search" type="search" v-model="state.search" placeholder="搜索">
     </div>
-    <div class="block">
-      <ul class="list">
-        <li class="item" v-for="item in filteredList" :key="item.id">
-          <div class="l1">
-            <span class="name">{{ item.name }}</span>
-            <span class="desc">{{ item.desc }}</span>
-          </div>
-          <div class="l2">
-            <a :href="item.url" target="_blank">{{ item.url }}</a></div>
-        </li>
-      </ul>
-    </div>
+    <ul class="block tags">
+      <li class="tag" v-for="tag in filteredTags" :key="tag" @click="onTagClick(tag)">{{ tag }}</li>
+    </ul>
+    <ul class=" block datas">
+      <li class="data" v-for="item in filteredList" :key="item.id">
+        <div class="l1">
+          <span class="name">{{ item.name }}</span>
+          <span class="desc">{{ item.desc }}</span>
+        </div>
+        <div class="l2">
+          <a :href="item.url" target="_blank">{{ item.url }}</a></div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue'
-import DATA from '../data/data'
+import { computed, defineComponent, reactive } from 'vue'
+import DATA from '@/data/data'
+import { Data, DataItem } from '@/types/data'
 
 const contains = (text: string, find: string, type?: number) => {
   if (type === 1) {
@@ -31,23 +33,45 @@ const contains = (text: string, find: string, type?: number) => {
   }
 }
 
+const filterTags = (data: Data): string[] => {
+  const set: Set<string> = new Set()
+  data.forEach(item => {
+    item.tags.forEach(tag => {
+      set.add(tag)
+    })
+  })
+  return Array.from(set)
+}
+
 export default defineComponent({
   setup () {
     const state = reactive({ search: '' })
+
+    const filteredTags = filterTags(DATA)
+
     const filteredList = computed(() => {
       const find = state.search.toLowerCase()
       if (find) {
-        return DATA.filter(item => {
-          return contains(item.name, find) || contains(item.desc, find) || contains(item.url, find, 1)
+        return DATA.filter((item: DataItem) => {
+          return contains(item.name, find) ||
+            contains(item.desc, find) ||
+            contains(item.url, find, 1) ||
+            contains(item.tags.join('|'), find)
         })
       } else {
         return DATA
       }
     })
 
+    const onTagClick = (tag: string) => {
+      state.search = tag
+    }
+
     return {
+      filteredTags,
       filteredList,
-      state
+      state,
+      onTagClick
     }
   }
 })
@@ -74,10 +98,23 @@ export default defineComponent({
     font-size: 1.5rem;
   }
 
-  .list {
+  .tags {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-top: .5rem;
+
+    .tag {
+      margin: 0 1rem 0 0;
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+    }
+  }
+
+  .datas {
     list-style: decimal;
 
-    .item {
+    .data {
       margin: 1.5rem 1rem;
 
       .l1 {
