@@ -25,6 +25,8 @@ import { computed, defineComponent, reactive } from 'vue'
 import DATA from '@/data/data'
 import { Data, DataItem } from '@/types/data'
 
+const data = DATA.sort(() => Math.random() - 0.5)
+
 const contains = (text: string, find: string, type?: number) => {
   if (type === 1) {
     return text.split('://')[1].toLowerCase().indexOf(find) >= 0
@@ -47,19 +49,19 @@ export default defineComponent({
   setup () {
     const state = reactive({ search: '' })
 
-    const filteredTags = filterTags(DATA)
+    const filteredTags = filterTags(data)
 
     const filteredList = computed(() => {
       const find = state.search.toLowerCase()
       if (find) {
-        return DATA.filter((item: DataItem) => {
+        return data.filter((item: DataItem) => {
           return contains(item.name, find) ||
             contains(item.desc, find) ||
             contains(item.url, find, 1) ||
             contains(item.tags.join('|'), find)
         })
       } else {
-        return DATA
+        return data
       }
     })
 
