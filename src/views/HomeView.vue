@@ -7,14 +7,15 @@
     <ul class="block tags">
       <li class="tag" v-for="tag in filteredTags" :key="tag" @click="onTagClick(tag)">{{ tag }}</li>
     </ul>
-    <ul class=" block datas">
-      <li class="data" v-for="item in filteredList" :key="item.id">
+    <ul class="block data">
+      <li class="item" v-for="item in filteredList" :key="item.id">
         <div class="l1">
-          <span class="name">{{ item.name }}</span>
-          <span class="desc">{{ item.desc }}</span>
+          <div><span class="name">{{ item.name }}</span></div>
+          <div><a :href="item.url" target="_blank"><span class="ico-url"/></a></div>
         </div>
         <div class="l2">
-          <a :href="item.url" target="_blank">{{ item.url }}</a></div>
+          <span class="desc">{{ item.desc }}</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -61,7 +62,7 @@ export default defineComponent({
             contains(item.tags.join('|'), find)
         })
       } else {
-        return data
+        return data.slice(0, 20)
       }
     })
 
@@ -81,63 +82,114 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .home-page {
+  --white: #fff;
+  --border: #eee;
+  --border-blue: #0070f3;
+  --item-main-color: #444;
+  --item-sub-color: #888;
+
   padding: 1rem;
 
   .title {
     padding: 1rem 0;
     text-align: center;
     font-size: 2rem;
+    color: #333;
   }
 
   .block {
   }
 
   .search {
-    padding: 1.2rem 0.5rem;
+    padding: 1.2rem 2rem;
     width: 100%;
     height: 2rem;
     line-height: 1;
+    background-color: var(--white);
+    border-radius: 1rem;
+    border: 2px solid var(--border);
     font-size: 1.5rem;
+    transition: all 0.3s ease-out;
+
+    &:focus, &:hover {
+      outline: none;
+      border-color: var(--border-blue);
+    }
   }
 
   .tags {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
-    margin-top: .5rem;
+    margin-top: 1rem;
 
     .tag {
-      margin: 0 1rem 0 0;
-      border-bottom: 1px solid #333;
+      margin: 0 .6rem .6rem 0;
+      padding: .3rem .8rem;
+      background-color: var(--white);
+      border-radius: 1rem;
+      border: 2px solid var(--border);
+      font-size: .8rem;
       cursor: pointer;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        border-color: var(--border-blue);
+      }
     }
   }
 
-  .datas {
-    list-style: decimal;
+  .data {
+    list-style: none;
 
-    .data {
-      margin: 1.5rem 1rem;
+    .item {
+      margin: 1rem 0;
+      padding: 1.5rem;
+      background-color: var(--white);
+      border-radius: 1rem;
+      border: 2px solid var(--border);
+      font-size: .8rem;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        border-color: var(--border-blue);
+      }
 
       .l1 {
-        .name {
-          font-size: 1.5rem;
-          color: #333;
-        }
-
-        .desc {
-          padding-left: 1rem;
-          font-size: 1rem;
-          color: #666;
-        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
       .l2 {
-        a {
-          font-size: 1rem;
-          color: #999;
-          text-decoration: none;
-        }
+        margin-top: .6rem;
+      }
+
+      .name {
+        font-size: 1.5rem;
+        color: var(--item-main-color);
+      }
+
+      .desc {
+        font-size: .8rem;
+        color: var(--item-sub-color);
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        text-decoration: none;
+      }
+
+      .ico-url {
+        display: block;
+        width: 1.2rem;
+        height: 1.2rem;
+        background-image: url(../assets/url.svg);
+        background-size: 100%;
       }
     }
   }
