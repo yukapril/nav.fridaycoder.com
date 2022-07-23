@@ -1,13 +1,21 @@
 <template>
   <div class="home-page">
     <h1 class="title">网址收藏</h1>
-    <div class="block">
-      <input class="search" type="search" v-model="state.search" placeholder="搜索">
+
+    <div class="search-box">
+      <input class="search" type="search" v-model="state.search" placeholder="输入关键词（支持使用空格分隔多个关键词）">
     </div>
-    <ul class="block tags">
+
+    <ul class="tags">
       <li class="tag" v-for="tag in filteredTags" :key="tag" @click="onTagClick(tag)">{{ tag }}</li>
     </ul>
-    <ul class="block data">
+
+    <div class="data-tips">
+      <span>搜索结果条数：</span>
+      <span>{{ filteredList.length }}</span>
+    </div>
+
+    <ul class="data">
       <li class="item" v-for="item in filteredList" :key="item.id">
         <div class="l1">
           <div><span class="name">{{ item.name }}</span></div>
@@ -53,17 +61,24 @@ export default defineComponent({
     const filteredTags = filterTags(data)
 
     const filteredList = computed(() => {
-      const find = state.search.toLowerCase()
-      if (find) {
-        return data.filter((item: DataItem) => {
-          return contains(item.name, find) ||
-            contains(item.desc, find) ||
-            contains(item.url, find, 1) ||
-            contains(item.tags.join('|'), find)
-        })
-      } else {
-        return data.slice(0, 20)
-      }
+      const search = state.search.toLowerCase().trim()
+
+      if (search === '') return data.slice(0, 20)
+
+      let result = data
+      const sArr = search.split(' ')
+      sArr.forEach(s => {
+        if (s) {
+          result = result.filter((item: DataItem) => {
+            return contains(item.name, s) ||
+              contains(item.desc, s) ||
+              contains(item.url, s, 1) ||
+              contains(item.tags.join('|'), s)
+          })
+        }
+      })
+
+      return result
     })
 
     const onTagClick = (tag: string) => {
@@ -85,6 +100,7 @@ export default defineComponent({
   --white: #fff;
   --border: #eee;
   --border-blue: #0070f3;
+  --result-tip-color: #999;
   --item-main-color: #444;
   --item-sub-color: #888;
 
@@ -97,23 +113,22 @@ export default defineComponent({
     color: #333;
   }
 
-  .block {
-  }
+  .search-box {
+    .search {
+      padding: 1.2rem 1rem;
+      width: 100%;
+      height: 2rem;
+      line-height: 1;
+      background-color: var(--white);
+      border-radius: 1rem;
+      border: 2px solid var(--border);
+      font-size: 1.5rem;
+      transition: all 0.3s ease-out;
 
-  .search {
-    padding: 1.2rem 2rem;
-    width: 100%;
-    height: 2rem;
-    line-height: 1;
-    background-color: var(--white);
-    border-radius: 1rem;
-    border: 2px solid var(--border);
-    font-size: 1.5rem;
-    transition: all 0.3s ease-out;
-
-    &:focus, &:hover {
-      outline: none;
-      border-color: var(--border-blue);
+      &:focus, &:hover {
+        outline: none;
+        border-color: var(--border-blue);
+      }
     }
   }
 
@@ -137,6 +152,12 @@ export default defineComponent({
         border-color: var(--border-blue);
       }
     }
+  }
+
+  .data-tips {
+    margin: 1rem 0;
+    font-size: .9rem;
+    color: var(--result-tip-color);
   }
 
   .data {
