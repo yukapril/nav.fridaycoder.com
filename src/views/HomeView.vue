@@ -3,7 +3,7 @@
     <h1 class="title">网址收藏</h1>
 
     <div class="search-box">
-      <input class="search" type="search" v-model="state.search" placeholder="输入关键词（支持使用空格分隔多个关键词）">
+      <input class="search" type="search" v-model="search" placeholder="输入关键词（支持使用空格分隔多个关键词）">
     </div>
 
     <ul class="tags">
@@ -30,7 +30,8 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive } from 'vue'
+import { defineComponent, computed, ref, watchEffect } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import DATA from '@/data/data'
 import { Data, DataItem } from '@/types/data'
 
@@ -56,17 +57,21 @@ const filterTags = (data: Data): string[] => {
 
 export default defineComponent({
   setup () {
-    const state = reactive({ search: '' })
+    const router = useRouter()
+    const route = useRoute()
+    const { q } = route.query
+
+    const search = ref(typeof q === 'string' ? q : '')
 
     const filteredTags = filterTags(data)
 
     const filteredList = computed(() => {
-      const search = state.search.toLowerCase().trim()
+      const searchVal = search.value.toLowerCase().trim()
 
-      if (search === '') return data.slice(0, 20)
+      if (searchVal === '') return data.slice(0, 20)
 
       let result = data
-      const sArr = search.split(' ')
+      const sArr = searchVal.split(' ')
       sArr.forEach(s => {
         if (s) {
           result = result.filter((item: DataItem) => {
@@ -81,14 +86,19 @@ export default defineComponent({
       return result
     })
 
+    watchEffect(() => {
+      const query = search.value ? { q: search.value } : {}
+      router.replace({ path: route.path, query })
+    })
+
     const onTagClick = (tag: string) => {
-      state.search = tag
+      search.value = tag
     }
 
     return {
       filteredTags,
       filteredList,
-      state,
+      search,
       onTagClick
     }
   }
