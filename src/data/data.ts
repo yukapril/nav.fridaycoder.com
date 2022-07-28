@@ -227,14 +227,14 @@ const data: Data = [
   },
   {
     id: 33,
-    name: 'Lorem Picsum',
+    name: 'browserhacks',
     desc: '各种浏览器 CSS/JS HACK 写法，非常全面',
     url: 'http://browserhacks.com',
     tags: ['开发', 'HACK']
   },
   {
     id: 34,
-    name: 'Lorem Picsum',
+    name: 'Bundlephobia',
     desc: '查看 NPM 包各个版本的大小尺寸以及下载速度',
     url: 'https://bundlephobia.com',
     tags: ['开发', 'NPM']
