@@ -322,6 +322,69 @@ const data: Data = [
     desc: '最知名的全球测速网站',
     url: 'https://www.speedtest.net',
     tags: ['运维', '测速']
+  },
+  {
+    id: 47,
+    name: 'Have I Been Pwned',
+    desc: '通过邮箱检测你的密码是否泄露了',
+    url: 'https://haveibeenpwned.com',
+    tags: ['安全', '密码']
+  },
+  {
+    id: 48,
+    name: 'Desmos',
+    desc: '在线图形计算器、科学计算器、矩阵计算器、绘制几何图形等，还支持 API 调用绘图',
+    url: 'https://www.desmos.com',
+    tags: ['数学', '开发']
+  },
+  {
+    id: 49,
+    name: 'TinyPNG',
+    desc: '最知名的图像压缩工具，可以在线压缩图片，也有各种第三方工具，还提供 API 调用',
+    url: 'https://tinypng.com',
+    tags: ['图片', '开发', '压缩']
+  },
+  {
+    id: 50,
+    name: 'Witeboard',
+    desc: '简易的在线画板工具，可以分享共同开会使用，不过可能国内网络不是很通畅',
+    url: 'https://witeboard.com',
+    tags: ['画板']
+  },
+  {
+    id: 51,
+    name: 'ipify',
+    desc: '提供各种 API 获取当前的 IP，有各种第三方封装库',
+    url: 'https://www.ipify.org',
+    tags: ['开发', 'IP']
+  },
+  {
+    id: 52,
+    name: 'Netlify',
+    desc: '提供静态资源部署服务，免费版可以绑定自定义域名，还可以支持 Next.js',
+    url: 'https://www.netlify.com',
+    tags: ['开发', '资源部署']
+  },
+  {
+    id: 53,
+    name: 'Vercel',
+    desc: 'Vercel 之前叫 ZEIT。提供静态资源部署服务，免费版可以绑定自定义域名、支持 serverless 接口。也支持 Next.js。因为 Next.js 就是他们家开发的',
+    url: 'https://vercel.com',
+    tags: ['开发', '资源部署']
+  },
+  {
+    id: 54,
+    name: 'HEROKU',
+    desc: '非常强大的部署平台，支持各种语言。免费版可以绑定域名，每月550小时用量（绑定支付方式后1000小时）',
+    url: 'https://vercel.com',
+    tags: ['开发', '资源部署']
+  },
+  {
+    id: 55,
+    name: 'Surge',
+    desc: '提供静态资源部署服务，免费版可以绑定自定义域名。全程使用命令行操作',
+    url: 'https://surge.sh',
+    tags: ['开发', '资源部署']
   }
 ]
 
