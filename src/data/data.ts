@@ -385,6 +385,76 @@ const data: Data = [
     desc: '提供静态资源部署服务，免费版可以绑定自定义域名。全程使用命令行操作',
     url: 'https://surge.sh',
     tags: ['开发', '资源部署']
+  },
+  {
+    id: 56,
+    name: 'miro',
+    desc: '在线白板工具，支持多人协同，有画板、看板、脑图等模版',
+    url: 'https://miro.com',
+    tags: ['白板', '多人协同']
+  },
+  {
+    id: 57,
+    name: 'TLD PARTY',
+    desc: '域名后缀查询，主要是看看自己想出来的域名后缀是否真实存在',
+    url: 'https://tld.party',
+    tags: ['域名']
+  },
+  {
+    id: 58,
+    name: 'TLD LIST',
+    desc: '域名后缀价格比较，它会列出来你要的域名后缀最便宜、续费最便宜以及三年最便宜',
+    url: 'https://zh-hans.tld-list.com',
+    tags: ['域名', '比较']
+  },
+  {
+    id: 59,
+    name: 'domcomp',
+    desc: '域名后缀价格比较，它会列出来你要的域名，新购、续费、转移最便宜的三家',
+    url: 'https://www.domcomp.com',
+    tags: ['域名', '比较']
+  },
+  {
+    id: 60,
+    name: 'cpu-panda',
+    desc: 'CPU 比较，支持桌面和移动端 CPU',
+    url: 'https://www.cpu-panda.com/zh-cn',
+    tags: ['CPU', '比较']
+  },
+  {
+    id: 61,
+    name: '亚数信息-SSL/TLS安全评估报告',
+    desc: '检测网站 HTTPS 是否安全',
+    url: 'https://myssl.com',
+    tags: ['SSL', 'HTTPS']
+  },
+  {
+    id: 62,
+    name: 'FreeSSL',
+    desc: '在线生成 HTTPS 证书',
+    url: 'https://freessl.cn',
+    tags: ['SSL', 'HTTPS']
+  },
+  {
+    id: 63,
+    name: 'Indify',
+    desc: 'Notion 小组件工具',
+    url: 'https://indify.co',
+    tags: ['notion']
+  },
+  {
+    id: 64,
+    name: 'Fruition',
+    desc: '开源的用 Notion 制作网站的工具',
+    url: 'https://fruitionsite.com',
+    tags: ['notion']
+  },
+  {
+    id: 65,
+    name: 'noto.so',
+    desc: '用 Notion 制作网站的工具，带有 2 个默认主题',
+    url: 'https://noto.so',
+    tags: ['notion']
   }
 ]
 
