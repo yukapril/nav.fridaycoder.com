@@ -455,6 +455,62 @@ const data: Data = [
     desc: '用 Notion 制作网站的工具，带有 2 个默认主题',
     url: 'https://noto.so',
     tags: ['notion']
+  },
+  {
+    id: 66,
+    name: 'CodePen',
+    desc: '在线代码分享平台，除了网页版，还支持浏览器插件。它额外支持 markdown，还可以作为文档使用。',
+    url: 'https://runjs.work',
+    tags: ['开发', '在线代码']
+  },
+  {
+    id: 67,
+    name: 'IconGo',
+    desc: '提供大量 ICON 可以下载，支持 svg 格式，还可以通过下载 npm 包来批量导入 ICON',
+    url: 'https://icongo.github.io',
+    tags: ['开发', '图标']
+  },
+  {
+    id: 68,
+    name: '现代 JavaScript 教程',
+    desc: '现代 JavaScript 教程，类似 MDN，有中文版本',
+    url: 'https://zh.javascript.info',
+    tags: ['开发', '教程']
+  },
+  {
+    id: 69,
+    name: 'Fly.io',
+    desc: '类似 Heroku 的在线部署平台，支持 256MB 及 3GB 免费存储。支持不少框架，并使用 docker 方式部署',
+    url: 'https://fly.io',
+    tags: ['开发', '教程']
+  },
+  {
+    id: 70,
+    name: 'regular expressions 101',
+    desc: '正则表达式测试调试工具，可以实现解析说明',
+    url: 'https://regex101.com/',
+    tags: ['开发', '正则']
+  },
+  {
+    id: 71,
+    name: 'Whimsical',
+    desc: '绘制流程图功能比较丰富，可以插入到 Notion 中',
+    url: 'https://whimsical.com',
+    tags: ['流程图']
+  },
+  {
+    id: 72,
+    name: 'ProcessOn',
+    desc: '知名的流程图、脑图工具，专业强大',
+    url: 'https://www.processon.com',
+    tags: ['流程图']
+  },
+  {
+    id: 72,
+    name: 'Ubuntu Deepin 软件包列表',
+    desc: 'deepin-wine 环境与应用在 Debian/Ubuntu 上的移植仓库，安装软件方便快捷',
+    url: 'https://deepin-wine.i-m.dev',
+    tags: ['Ubuntu']
   }
 ]
 
