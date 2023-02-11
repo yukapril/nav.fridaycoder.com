@@ -368,7 +368,7 @@ const data: Data = [
   {
     id: 53,
     name: 'Vercel',
-    desc: 'Vercel 之前叫 ZEIT。提供静态资源部署服务，免费版可以绑定自定义域名、支持 serverless 接口。也支持 Next.js。因为 Next.js 就是他们家开发的',
+    desc: 'Vercel 之前叫 ZEIT。提供静态资源部署服务，免费版可以绑定自定义域名、支持 serverless 接口。也支持 Next.js 等大量前端框架。因为 Next.js 就是他们家开发的',
     url: 'https://vercel.com',
     tags: ['开发', '资源部署']
   },
@@ -376,7 +376,7 @@ const data: Data = [
     id: 54,
     name: 'HEROKU',
     desc: '非常强大的部署平台，支持各种语言。免费版可以绑定域名，每月550小时用量（绑定支付方式后1000小时）',
-    url: 'https://vercel.com',
+    url: 'https://www.heroku.com',
     tags: ['开发', '资源部署']
   },
   {
@@ -452,7 +452,7 @@ const data: Data = [
   {
     id: 65,
     name: 'noto.so',
-    desc: '用 Notion 制作网站的工具，带有 2 个默认主题',
+    desc: '用 Notion 制作网站的工具，带有 2 个默认主题，好像是个个人开发者的项目',
     url: 'https://noto.so',
     tags: ['notion']
   },
@@ -511,6 +511,27 @@ const data: Data = [
     desc: 'deepin-wine 环境与应用在 Debian/Ubuntu 上的移植仓库，安装软件方便快捷',
     url: 'https://deepin-wine.i-m.dev',
     tags: ['Ubuntu']
+  },
+  {
+    id: 73,
+    name: 'super',
+    desc: '用 Notion 制作网站的工具，带有不少主题，访问速度很快。免费版不可以绑定自定义域名，不能定制主题',
+    url: 'https://super.so',
+    tags: ['notion']
+  },
+  {
+    id: 74,
+    name: 'Simple.ink',
+    desc: '用 Notion 制作网站的工具，只有一个默认主题，但是可以编辑代码样式。免费版不可以绑定自定义域名',
+    url: 'https://simple.ink',
+    tags: ['notion']
+  },
+  {
+    id: 75,
+    name: 'Popsy',
+    desc: '用 Notion 制作网站的工具，有不少不错的主题，但是没有免费版本。访问速度一般',
+    url: 'https://popsy.co',
+    tags: ['notion']
   }
 ]
 
