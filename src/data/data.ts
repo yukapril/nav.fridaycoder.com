@@ -532,6 +532,20 @@ const data: Data = [
     desc: '用 Notion 制作网站的工具，有不少不错的主题，但是没有免费版本。访问速度一般',
     url: 'https://popsy.co',
     tags: ['notion']
+  },
+  {
+    id: 76,
+    name: 'render',
+    desc: '可以部署静态网站或者一些服务，甚至是数据库，可以绑定自定义域名。访问速度一般',
+    url: 'https://render.com',
+    tags: ['开发', '资源部署']
+  },
+  {
+    id: 77,
+    name: 'Stormkit',
+    desc: '可以部署 git 上一些前端项目，支持静态网站或服务，可以绑定自定义域名。访问速度一般',
+    url: 'https://www.stormkit.io',
+    tags: ['开发', '资源部署']
   }
 ]
 
