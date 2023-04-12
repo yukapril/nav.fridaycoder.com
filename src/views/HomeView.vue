@@ -32,8 +32,8 @@
 <script lang="ts">
 import { defineComponent, computed, ref, watchEffect } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import DATA from '@/data/data'
-import { Data, DataItem } from '@/types/data'
+import DATA from '../data/data'
+import { Data, DataItem } from '../types/data'
 
 const data = DATA.sort(() => Math.random() - 0.5)
 
