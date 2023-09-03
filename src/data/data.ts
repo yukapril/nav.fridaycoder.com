@@ -546,6 +546,55 @@ const data: Data = [
     desc: '可以部署 git 上一些前端项目，支持静态网站或服务，可以绑定自定义域名。访问速度一般',
     url: 'https://www.stormkit.io',
     tags: ['开发', '资源部署']
+  },
+  {
+    id: 78,
+    name: 'trianglify',
+    desc: '在线生成各种晶格化背景图片，使用图案强度、三角方差、像元大小等调节器，可以自由调整晶格的整体色调、晶格形状、晶格大小，生成一张独特的晶格背景',
+    url: 'https://trianglify.io',
+    tags: ['开发', '背景']
+  },
+  {
+    id: 79,
+    name: 'AwA ｜ HANDSOME-CSS3-LIB',
+    desc: '提供各种 CSS 相关的代码片段和资源，包括布局、动画、特效、响应式设等',
+    url: 'https://www.handsome-css.com',
+    tags: ['开发', 'CSS', '动效', '按钮']
+  },
+  {
+    id: 80,
+    name: 'gitmoji | An emoji guide for your commit messages',
+    desc: '使用 emoji 表情符号来描述 Git commit 的工具网站。它可以帮助开发者更清晰地表达 commit 的内容和意图。用处不大，但是挺有意思的',
+    url: 'https://gitmoji.dev',
+    tags: ['开发', 'git', 'emoji']
+  },
+  {
+    id: 81,
+    name: 'Free Icons, Clipart Illustrations, Photos, and Music',
+    desc: '提供各种类型图标资源的网站，包括矢量图标、PNG图标、图标库等。图标资源非常丰富，包括动物、植物、食品、交通工具、电子产品、家居用品等',
+    url: 'https://icons8.com',
+    tags: ['开发', '图标']
+  },
+  {
+    id: 82,
+    name: 'Apption',
+    desc: 'Notion 小组件工具',
+    url: 'https://apption.co',
+    tags: ['开发', 'Notion']
+  },
+  {
+    id: 83,
+    name: 'Apption',
+    desc: '提供各种类型图标资源的网站。按照不同的类别对图标进行分类，如动物、植物、食品、交通工具、电子产品、家居用品等',
+    url: 'https://www.flaticon.com',
+    tags: ['开发', '图标']
+  },
+  {
+    id: 84,
+    name: 'Apption',
+    desc: '提供简单图标，并且可以进行二次编辑',
+    url: 'https://iconbuddy.app',
+    tags: ['开发', '图标']
   }
 ]
 
