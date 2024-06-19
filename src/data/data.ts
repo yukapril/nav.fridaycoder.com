@@ -595,7 +595,14 @@ const data: Data = [
     desc: '提供简单图标，并且可以进行二次编辑',
     url: 'https://iconbuddy.app',
     tags: ['开发', '图标']
-  }
+  },
+  {
+    id: 85,
+    name: 'Coupon.io',
+    desc: '使用 CSS 来实现绘制优惠券等效果',
+    url: 'https://coupon.codelabo.cn',
+    tags: ['开发', 'CSS', '设计']
+  },
 ]
 
 export default data
