@@ -603,6 +603,34 @@ const data: Data = [
     url: 'https://coupon.codelabo.cn',
     tags: ['开发', 'CSS', '设计']
   },
+  {
+    id: 86,
+    name: 'Loadership',
+    desc: '使用 CSS 来实现页面等待 Loading 效果，支持在线细节的定制功能',
+    url: 'https://www.loadership.com',
+    tags: ['开发', 'CSS', '设计']
+  },
+  {
+    id: 87,
+    name: 'Stable Diffusion 3免费在线访问',
+    desc: 'Stable Diffusion 免费在线版',
+    url: 'https://stablediffusion3.net',
+    tags: ['AI', '设计', '图片']
+  },
+  {
+    id: 88,
+    name: 'Browserslist',
+    desc: '在线解析 Browserslist 配置文件，支持解析和生成，并分析浏览器覆盖率',
+    url: 'https://browsersl.ist',
+    tags: ['开发']
+  },
+  {
+    id: 89,
+    name: 'IP 解析',
+    desc: '可以通过接口获取 IP 信息，包括归属地、国家、位置、ASN 等数据',
+    url: 'https://ip.guide',
+    tags: ['开发', 'IP']
+  },
 ]
 
 export default data
