@@ -631,6 +631,13 @@ const data: Data = [
     url: 'https://ip.guide',
     tags: ['开发', 'IP']
   },
+  {
+    id: 90,
+    name: 'LogoFast',
+    desc: '提供在线 LOGO 编辑，可以在列表中选择 icon 效果，并调整颜色角度尺寸等，配合背景完成 LOGO 定制',
+    url: 'https://shipfa.st/tools/logo-fast',
+    tags: ['开发', '设计']
+  },
 ]
 
 export default data
