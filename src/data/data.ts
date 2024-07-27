@@ -638,6 +638,13 @@ const data: Data = [
     url: 'https://shipfa.st/tools/logo-fast',
     tags: ['开发', '设计']
   },
+  {
+    id: 91,
+    name: 'StickerBaker',
+    desc: '在线制作和个性化贴纸，允许用户上传自己的图片来定制贴纸。',
+    url: 'https://stickerbaker.com',
+    tags: ['图片', '设计', '贴纸']
+  },
 ]
 
 export default data
