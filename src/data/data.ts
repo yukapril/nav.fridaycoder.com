@@ -645,6 +645,27 @@ const data: Data = [
     url: 'https://stickerbaker.com',
     tags: ['图片', '设计', '贴纸']
   },
+  {
+    id: 92,
+    name: 'Favicon.im',
+    desc: 'Favicon.im 是一个在线服务，可以把网站的 favicon 转成在线图片链接。',
+    url: 'https://favicon.im',
+    tags: ['开发', '图片']
+  },
+  {
+    id: 92,
+    name: 'IP.network',
+    desc: '它也是可以通过接口获取 IP 信息，包括归属地、国家、位置、ASN 等数据。',
+    url: 'https://www.ip.network',
+    tags: ['开发', 'IP']
+  },
+  {
+    id: 93,
+    name: 'DNS.fish',
+    desc: '在线查询域名的各种 DNS 解析记录。',
+    url: 'https://dns.fish',
+    tags: ['开发', 'IP']
+  }
 ]
 
 export default data
