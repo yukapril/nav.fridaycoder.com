@@ -665,6 +665,13 @@ const data: Data = [
     desc: '在线查询域名的各种 DNS 解析记录。',
     url: 'https://dns.fish',
     tags: ['开发', 'IP']
+  },
+  {
+    id: 94,
+    name: 'Text to Logo & Favicon',
+    desc: '在线通过文本生成 LOGO 和 Favicon，支持 Emoji 作为文本。',
+    url: 'https://www.logo.surf',
+    tags: ['开发', 'LOGO', '设计']
   }
 ]
 
