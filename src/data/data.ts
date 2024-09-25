@@ -672,6 +672,20 @@ const data: Data = [
     desc: '在线通过文本生成 LOGO 和 Favicon，支持 Emoji 作为文本。',
     url: 'https://www.logo.surf',
     tags: ['开发', 'LOGO', '设计']
+  },
+  {
+    id: 95,
+    name: 'Plug & socket types around the world',
+    desc: '介绍各种电源型号插头插座。',
+    url: 'https://www.worldstandards.eu/electricity/plugs-and-sockets',
+    tags: ['电源', '插头', '插座']
+  },
+  {
+    id: 96,
+    name: '精选最佳网络摄像头',
+    desc: '在线观看各个国家地区开放的网络摄像头，还挺有意思的',
+    url: 'https://www.skylinewebcams.com/zh/live-cams-category/live-web-cams.html',
+    tags: ['摄像头']
   }
 ]
 
