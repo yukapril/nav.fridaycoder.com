@@ -686,7 +686,29 @@ const data: Data = [
     desc: '在线观看各个国家地区开放的网络摄像头，还挺有意思的',
     url: 'https://www.skylinewebcams.com/zh/live-cams-category/live-web-cams.html',
     tags: ['摄像头']
+  },
+  {
+    id: 97,
+    name: 'zeabur',
+    desc: '可以部署静态网站和 serverless，还可以支持个别平台SSH 部署',
+    url: 'https://zeabur.com',
+    tags: ['静态资源', 'serverless']
+  },
+  {
+    id: 98,
+    name: 'MemFireDB',
+    desc: '数据库托管平台，有免费的资源提供，国外平台的平替',
+    url: 'https://memfiredb.com',
+    tags: ['数据库']
+  },
+  {
+    id: 99,
+    name: '油猴开发指南',
+    desc: '国内人写的油猴开发教程，非常好',
+    url: 'https://learn.scriptcat.org',
+    tags: ['油猴', '教程']
   }
+  
 ]
 
 export default data
