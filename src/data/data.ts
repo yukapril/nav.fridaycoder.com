@@ -707,8 +707,15 @@ const data: Data = [
     desc: '国内人写的油猴开发教程，非常好',
     url: 'https://learn.scriptcat.org',
     tags: ['油猴', '教程']
+  },
+  {
+    id: 100,
+    name: 'BYLO AI',
+    desc: '一个功能强大的 AI 图像生成网站，可以将用户的文本描述转换为高质量的图像。支持描述如负面提示等。',
+    url: 'https://bylo.ai',
+    tags: ['AI', '图片']
   }
-  
+
 ]
 
 export default data
