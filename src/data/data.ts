@@ -714,6 +714,27 @@ const data: Data = [
     desc: '一个功能强大的 AI 图像生成网站，可以将用户的文本描述转换为高质量的图像。支持描述如负面提示等。',
     url: 'https://bylo.ai',
     tags: ['AI', '图片']
+  },
+  {
+    id: 101,
+    name: 'Resend',
+    desc: '邮件发送平台，需要使用 API 来调用发送邮件，免费版支持绑定一个域名，每月3000封。开发者友好，发送成功率高。',
+    url: 'https://resend.com',
+    tags: ['邮件']
+  },
+  {
+    id: 102,
+    name: 'Forward Mail',
+    desc: '邮件转发平台，免费版本只能通过 DNS txt 方式配置转发，还支持 webhook 转发。转发域名不限制，转发成功率高。',
+    url: 'https://forwardemail.net',
+    tags: ['邮件']
+  },
+  {
+    id: 103,
+    name: 'ImprovMX',
+    desc: '邮件转发平台，操作简单，免费版只支持一个域名，25个别名。可以通过 API 方式进行转发配置。转发成功率高。',
+    url: 'https://improvmx.com',
+    tags: ['邮件']
   }
 
 ]
