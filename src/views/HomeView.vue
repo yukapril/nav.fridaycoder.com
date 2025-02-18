@@ -1,9 +1,10 @@
 <template>
   <div class="home-page">
-    <h1 class="title">网址收藏</h1>
+    <h1 class="title">网址收藏导航</h1>
 
     <div class="search-box">
       <input class="search" type="search" v-model="search" placeholder="输入关键词（支持使用空格分隔多个关键词）">
+      <span class="search-icon">🔍</span>
     </div>
 
     <ul class="tags">
@@ -19,7 +20,11 @@
       <li class="item" v-for="item in filteredList" :key="item.id">
         <div class="l1">
           <div><span class="name">{{ item.name }}</span></div>
-          <div><a :href="item.url" target="_blank"><span class="ico-url"/></a></div>
+          <div class="visit-btn">
+            <a :href="item.url" target="_blank" class="link-button">
+              <span class="ico-url">访问</span>
+            </a>
+          </div>
         </div>
         <div class="l2">
           <span class="desc">{{ item.desc }}</span>
@@ -56,7 +61,7 @@ const filterTags = (data: Data): string[] => {
 }
 
 export default defineComponent({
-  setup () {
+  setup() {
     const router = useRouter()
     const route = useRoute()
     const { q } = route.query
@@ -107,120 +112,188 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .home-page {
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
   --white: #fff;
-  --border: #eee;
-  --border-blue: #0070f3;
-  --result-tip-color: #999;
-  --item-main-color: #444;
-  --item-sub-color: #888;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --border: #e5e7eb;
+  --text-light: #64748b;
 
-  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--gray-50), var(--white));
 
   .title {
-    padding: 1rem 0;
+    padding: 3rem 0;
     text-align: center;
-    font-size: 2rem;
-    color: #333;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--gray-800);
+    letter-spacing: -0.025em;
+    background: linear-gradient(45deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .search-box {
-    .search {
-      padding: 1.2rem 1rem;
-      width: 100%;
-      height: 2rem;
-      line-height: 1;
-      background-color: var(--white);
-      border-radius: 1rem;
-      border: 2px solid var(--border);
-      font-size: 1.5rem;
-      transition: all 0.3s ease-out;
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
 
-      &:focus, &:hover {
+    .search {
+      padding: 1.25rem 3rem 1.25rem 1.5rem;
+      width: 100%;
+      height: 4rem;
+      line-height: 1.5;
+      background-color: var(--white);
+      border-radius: 1.5rem;
+      border: 2px solid var(--gray-200);
+      font-size: 1.25rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:focus,
+      &:hover {
         outline: none;
-        border-color: var(--border-blue);
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        transform: translateY(-2px);
       }
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      pointer-events: none;
     }
   }
 
   .tags {
+    max-width: 800px;
+    margin: 2rem auto;
     display: flex;
-    list-style: none;
+    gap: 0.75rem;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    list-style: none;
 
     .tag {
-      margin: 0 .6rem .6rem 0;
-      padding: .3rem .8rem;
+      margin: 0;
+      padding: 0.5rem 1rem;
       background-color: var(--white);
-      border-radius: 1rem;
-      border: 2px solid var(--border);
-      font-size: .8rem;
+      border-radius: 3rem;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      color: var(--text-light);
       cursor: pointer;
-      transition: all 0.3s ease-out;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
       &:hover {
-        border-color: var(--border-blue);
+        border-color: var(--primary);
+        background-color: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
       }
     }
   }
 
-  .data-tips {
-    margin: 1rem 0;
-    font-size: .9rem;
-    color: var(--result-tip-color);
-  }
-
   .data {
     list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 
     .item {
-      margin: 1rem 0;
-      padding: 1.5rem;
+      padding: 1.75rem;
       background-color: var(--white);
-      border-radius: 1rem;
-      border: 2px solid var(--border);
-      font-size: .8rem;
-      transition: all 0.3s ease-out;
+      border-radius: 1.25rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
       &:hover {
-        border-color: var(--border-blue);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+
+        &::before {
+          opacity: 1;
+        }
       }
 
       .l1 {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 1rem;
+
+        .name {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--gray-800);
+        }
+
+        .visit-btn {
+          flex-shrink: 0;
+        }
+
+        .link-button {
+          text-decoration: none;
+
+          .ico-url {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background-color: var(--primary-dark);
+              transform: translateY(-2px);
+            }
+          }
+        }
       }
 
       .l2 {
-        margin-top: .6rem;
-      }
-
-      .name {
-        font-size: 1.5rem;
-        color: var(--item-main-color);
-      }
-
-      .desc {
-        font-size: .8rem;
-        color: var(--item-sub-color);
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-        height: 2rem;
-        text-decoration: none;
-      }
-
-      .ico-url {
-        display: block;
-        width: 1.2rem;
-        height: 1.2rem;
-        background-image: url(../assets/url.svg);
-        background-size: 100%;
+        .desc {
+          font-size: 1rem;
+          color: var(--gray-600);
+          line-height: 1.6;
+        }
       }
     }
   }

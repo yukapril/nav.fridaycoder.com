@@ -1,4 +1,4 @@
-name: CI
+name: Build and Deploy
 
 on:
   push:
@@ -6,31 +6,54 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version: "18"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 8
-
-      - name: Build project
-        run: pnpm i  && pnpm run build
+          version: 9
+      - name: Install dependencies
+        run: pnpm install
         
-      - name: Upload COS
-        uses: zkqiang/tencent-cos-action@v0.1.0
+      - name: Build project
+        run: pnpm build
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          args: delete -r -f / && upload -r ./dist/ /
-          secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
-          secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-          bucket: ${{ secrets.COS_BUCKET }}
-          region: ${{ secrets.COS_REGION }}
+          python-version: '3.9'
+          
+      - name: Install coscmd
+        run: pip install coscmd
+        
+      - name: Configure coscmd
+        env:
+          SECRET_ID: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
+          SECRET_KEY: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
+          BUCKET: ${{ secrets.COS_BUCKET }}
+          REGION: ${{ secrets.COS_REGION }}
+        run: |
+          coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION -m 30
+          
+      - name: Deploy to COS
+        run: |
+          coscmd delete -r -f /
+          coscmd -d upload -r dist/ / 
+
+      - name: Flush CDN
+        uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
+        env:
+            SECRET_ID: ${{ secrets.CDN_SECRET_ID}}
+            SECRET_KEY: ${{ secrets.CDN_SECRET_KEY }}
+            PATHS: "https://nav.fridaycoder.com/"
+            FLUSH_TYPE: "flush" # optional
