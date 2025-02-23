@@ -735,7 +735,17 @@ const data: Data = [
     desc: '邮件转发平台，操作简单，免费版只支持一个域名，25个别名。可以通过 API 方式进行转发配置。转发成功率高。',
     url: 'https://improvmx.com',
     tags: ['邮件']
+  },
+  {
+    id: 104,
+    name: 'Raphael AI',
+    desc: '在线生成 AI 图片网站，使用 Flux.1 Dev 模型，不登录即可使用，不过对中文支持不太好，质量感觉一般。主要是胜在免费不登录。',
+    url: 'https://raphael.app',
+    tags: ['AI', '图片']
   }
+
+
+
 
 ]
 
