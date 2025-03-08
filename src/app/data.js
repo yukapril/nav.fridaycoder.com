@@ -1,6 +1,4 @@
-import { Data } from '../types/data'
-
-const data: Data = [
+const data = [
   {
     id: 1,
     name: 'Excalidraw',
@@ -653,13 +651,6 @@ const data: Data = [
     tags: ['开发', '图片']
   },
   {
-    id: 92,
-    name: 'IP.network',
-    desc: '它也是可以通过接口获取 IP 信息，包括归属地、国家、位置、ASN 等数据。',
-    url: 'https://www.ip.network',
-    tags: ['开发', 'IP']
-  },
-  {
     id: 93,
     name: 'DNS.fish',
     desc: '在线查询域名的各种 DNS 解析记录。',
@@ -742,11 +733,14 @@ const data: Data = [
     desc: '在线生成 AI 图片网站，使用 Flux.1 Dev 模型，不登录即可使用，不过对中文支持不太好，质量感觉一般。主要是胜在免费不登录。',
     url: 'https://raphael.app',
     tags: ['AI', '图片']
-  }
-
-
-
-
+  },
+  {
+    id: 105,
+    name: 'IP.network',
+    desc: '它也是可以通过接口获取 IP 信息，包括归属地、国家、位置、ASN 等数据。',
+    url: 'https://www.ip.network',
+    tags: ['开发', 'IP']
+  },
 ]
 
 export default data

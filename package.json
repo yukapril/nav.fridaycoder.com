@@ -1,24 +1,22 @@
 {
   "name": "nav-fridaycoder-com",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "start-static": "npx serve@latest out"
   },
   "dependencies": {
-    "vue": "^3.4.37",
-    "vue-router": "^4.4.3"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.2.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-legacy": "^5.4.1",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "less": "^4.2.0",
-    "terser": "^5.31.6",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.0",
-    "vue-tsc": "^2.0.29"
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1",
+    "@eslint/eslintrc": "^3"
   }
 }
